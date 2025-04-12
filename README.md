@@ -22,7 +22,7 @@ A lightweight cryptocurrency quotation tool built with TypeScript and vanilla Ja
 ### 📦 Installation:
 1- Clone the repository:
 ```
-git clone https://github.com/yourusername/crypto-quoter.git
+git clone https://github.com/lgimenez-code/crypto-quoter.git
 cd crypto-quoter
 ```
 2- Install dependencies:
