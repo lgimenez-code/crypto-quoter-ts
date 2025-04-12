@@ -1,24 +1,52 @@
-
 /*  --- general styles --- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:after, *:before {
+  box-sizing: inherit;
+}
 
 :root {
   --background: #0D2235;
   --white: #FFF;
   --primary: #9497FF;
   --secondary: #66A2FE;
+  --error: #CD5C5C;
+  --errorText: #8B0000;
 }
 
 body {
   background-color: var(--background);
 }
 
-.container {
+.hidden {
+  visibility: hidden;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.loaderContainer {
+  display: grid;
+  justify-items: center;
+}
+
+.appContainer {
   max-width: 900px;
   margin: 0 auto;
   width: 90%;
+  height: 98vh;
+  display: grid;
+  align-items: center;
+}
+
+.formContainer {
+  display: grid;
 }
 @media (min-width: 768px) {
-  .container {
+  .formContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
@@ -29,11 +57,11 @@ body {
   max-width: 400px;
   width: 80%;
   margin: 100px auto 0 auto;
-  display: block;
+  display: none;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .imageMain {
-    display: none;
+    display: block;
   }
 }
 
@@ -82,18 +110,25 @@ body {
   background-color: var(--primary);
   border: none;
   width: 100%;
+  height: 52px;
   padding: 10px;
   color: var(--white);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 20px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
   transition: all 0.3s ease;
 }
 .inputForm:hover {
   background-color: var(--secondary);
   transform: scale(1.03);
+}
+
+.errorField {
+  color: var(--errorText);
+  border: var(--error) 3px solid;
+  box-shadow: 0px 0px 10px 2px var(--error);
 }
 
 
@@ -114,10 +149,10 @@ body {
   width: 120px;
 }
 
-.resultPrice {
+.priceCrypto {
   font-size: 24px;
 }
 
-.resultInfo {
+.infoCrypto {
   font-size: 18px;
 }
