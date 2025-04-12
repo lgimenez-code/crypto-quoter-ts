@@ -1,4 +1,6 @@
 import Crypto from "../models/Crypto";
+import CryptoQuotation from "../models/CryptoQuotation";
+
 const urlBase = 'https://min-api.cryptocompare.com/data';
 
 export const getListCrypto = async () : Promise<any> => {
@@ -25,7 +27,7 @@ export const getListCrypto = async () : Promise<any> => {
 }
 
 
-export const getDataCrypto = async (coin: String = '', crypto: String = '') : Promise<any> => {
+export const getDataCrypto = async (coin: string = '', crypto: string = '') : Promise<CryptoQuotation> => {
   try {
     const url = `${urlBase}/pricemultifull?fsyms=${crypto}&tsyms=${coin}`;
     const response: Response = await fetch(url);
@@ -33,11 +35,8 @@ export const getDataCrypto = async (coin: String = '', crypto: String = '') : Pr
       throw new Error("An error as ocurred.");
     }
     const result = await response.json();
-    return result.DISPLAY[crypto.toString()][coin.toString()];
+    return result.DISPLAY[crypto][coin];
   } catch (error: any) {
     throw new Error(error.message);
   }
 }
-
-
-// coin: String = '', crypto: String = ''

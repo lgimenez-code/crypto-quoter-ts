@@ -1,5 +1,6 @@
 import { getListCrypto, getDataCrypto } from './api/cryptoApi';
 import Currency from './models/Currency';
+import CryptoQuotation from './models/CryptoQuotation';
 
 const formContainer = <HTMLDivElement>document.querySelector('.formContainer');
 const loaderContainer = <HTMLDivElement>document.querySelector('.loaderContainer');
@@ -40,31 +41,41 @@ const loadCoinField = () : void => {
   ];
   for (let i = 0; i < listCoins.length; i++) {
     let CoinName = '(' + listCoins[i].code + ') ' + listCoins[i].name;
-    selectCoin.innerHTML += `<option value="${listCoins[i].code}">${ CoinName }</option>`;
+    selectCoin.innerHTML += setOption(listCoins[i].code, CoinName)
   }
 }
 
 const loadCryptoField = async () => {
-  const arraylist = await getListCrypto();
-  for (let i = 0; i < arraylist.length; i++) {
-    let cryptoName = '(' + arraylist[i].code + ') ' + arraylist[i].name;
-    selectCrypto.innerHTML += `<option value="${arraylist[i].code}">${ cryptoName }</option>`;
+  try {
+    const arraylist = await getListCrypto();
+
+    for (let i = 0; i < arraylist.length; i++) {
+      let description = '(' + arraylist[i].code + ') ' + arraylist[i].name;
+      selectCrypto.innerHTML += setOption(arraylist[i].code, description);
+    }
+  } catch (error) {
+    console.error('Error loading cryptocurrencies:', error);
   }
 }
 
 const getInfoCrypto = async () => {
-  loadingPage(true);
+  try {
+    showLoadingState(true);
+    const data = await getDataCrypto(selectCoin.value, selectCrypto.value);
+    setInfoCrypto(data);  
+    showLoadingState();      
+  } catch (error) {
+    console.error('Error loading info: ', error);
+  }
+}
 
-  const data = await getDataCrypto(selectCoin.value, selectCrypto.value);
-
+const setInfoCrypto = (data: CryptoQuotation) => {
   imageCrypto.src = `https://cryptocompare.com/${data.IMAGEURL}`
-  actualPrice.innerHTML = data.PRICE;
-  highestPrice.innerHTML = data.HIGHDAY;
-  lowestPrice.innerHTML = data.LOWDAY;
-  variationPrice.innerHTML = data.CHANGEPCT24HOUR;
-  lastUpdate.innerHTML = data.LASTUPDATE;
-
-  loadingPage();
+  actualPrice.innerHTML = data.PRICE || '';
+  highestPrice.innerHTML = data.HIGHDAY || '';
+  lowestPrice.innerHTML = data.LOWDAY || '';
+  variationPrice.innerHTML = data.CHANGEPCT24HOUR || '';
+  lastUpdate.innerHTML = data.LASTUPDATE || '';
 }
 
 const validateFields = () : boolean => {
@@ -83,7 +94,7 @@ const validateFields = () : boolean => {
   return isValid;
 }
 
-const loadingPage = (active: boolean = false) => {
+const showLoadingState = (active: boolean = false) => {
   if (active) {
     formContainer.classList.add('displayNone');
     loaderContainer.classList.remove('displayNone');
@@ -94,6 +105,10 @@ const loadingPage = (active: boolean = false) => {
     loaderContainer.classList.add('displayNone');
     resultSection.classList.remove('hidden');
   }
+}
+
+const setOption = (value: string, description: string) : string => {
+  return `<option value="${value}">${ description }</option>`
 }
 
 document.addEventListener('DOMContentLoaded', init);
