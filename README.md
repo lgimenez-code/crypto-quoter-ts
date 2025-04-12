@@ -1,6 +1,9 @@
 ## Crypto Quoter
 A lightweight cryptocurrency quotation tool built with TypeScript and vanilla JavaScript. This application allows users to check real-time prices of various cryptocurrencies in different fiat currencies.
 
+Deploy = https://lgimenez-code.github.io/crypto-quoter-ts/
+
+
 <img src="https://github.com/user-attachments/assets/9eb2cad7-0e19-49fd-a4db-60a7837e6c61" width="450px" />
 
 <img src="https://github.com/user-attachments/assets/b3e167a3-5801-4f62-970b-2370beb7e4bd" width="0px" />
