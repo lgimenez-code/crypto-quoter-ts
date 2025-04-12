@@ -146,13 +146,23 @@ body {
 
 .imageCrypto {
   display: block;
-  width: 120px;
+  width: 100px;
 }
-
 .priceCrypto {
-  font-size: 24px;
-}
-
-.infoCrypto {
   font-size: 18px;
 }
+.infoCrypto {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  .imageCrypto {
+    width: 120px;
+  }
+  .priceCrypto {
+    font-size: 24px;
+  }
+  .infoCrypto {
+    font-size: 18px;
+  }
+}
+
