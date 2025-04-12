@@ -1,0 +1,123 @@
+
+/*  --- general styles --- */
+
+:root {
+  --background: #0D2235;
+  --white: #FFF;
+  --primary: #9497FF;
+  --secondary: #66A2FE;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
+
+.imageMain {
+  max-width: 400px;
+  width: 80%;
+  margin: 100px auto 0 auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .imageMain {
+    display: none;
+  }
+}
+
+.titleApp {
+  font-family: 'Lato', sans-serif;
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  font-size: 34px;
+}
+.titleApp::after {
+  content: '';
+  width: 200px;
+  height: 6px;
+  background-color: var(--secondary);
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+
+/* --- form --- */
+
+.labelForm {
+  color: var(--white);
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 15px 0px;
+}
+
+.selectForm {
+  width: 100%;
+  font-size: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.selectForm:hover {
+  transform: scale(1.03);
+}
+
+.inputForm {
+  background-color: var(--primary);
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+.inputForm:hover {
+  background-color: var(--secondary);
+  transform: scale(1.03);
+}
+
+
+/* --- result crypto --- */
+
+.gridResult {
+  color: var(--white);
+  font-family: Lato, sans-serif;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 30px;
+}
+
+.imageCrypto {
+  display: block;
+  width: 120px;
+}
+
+.resultPrice {
+  font-size: 24px;
+}
+
+.resultInfo {
+  font-size: 18px;
+}

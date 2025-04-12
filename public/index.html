@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="./assets/crypto-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/style.css">
+  <script src="./static/bundle/script.js" defer></script>
+  <title>Crypto quoter</title>
+</head>
+<body>
+  <main class="container">
+    <img class="imageMain" src="./assets/img-crypto.png" alt="Image Crypto">
+    <div>
+      <h1 class="titleApp">Crypto quoter</h1>
+      <div>
+        <label class="labelForm">Select your Coin</label>
+        <select class="selectForm" title="Select a Coin">
+          <option value="0">Select</option>
+          <option value="USD">Dólar</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">Libra Esterlina</option>
+        </select>
+        <label class="labelForm">Select your Cryptocurrency</label>
+        <select class="selectForm" title="Select a Crypto">
+          <option value="0">Select</option>
+          <option value="1182">Bitcoin</option>
+          <option value="7605">Ethereum</option>
+          <option value="934443">Solana</option>
+          <option value="5031">XRP</option>
+          <option value="925809">USD Coin</option>
+          <option value="946149">Orca</option>
+          <option value="953119">Sui</option>
+          <option value="4432">Dogecoin</option>
+          <option value="321992">Cardano</option>
+          <option value="171986">Tether</option>
+          <option value="971833">Babylon</option>
+          <option value="948251">Onyxcoin</option>
+          <option value="310829">TRON</option>
+          <option value="953245">Pepe</option>
+          <option value="953803">First Digital USD</option>
+          <option value="954671">Ondo</option>
+          <option value="204788">Binance Coin</option>
+          <option value="932121">Hedera Hashgraph</option>
+          <option value="3808">Litecoin</option>
+          <option value="935805">Avalanche</option>
+        </select>
+        <input type="button" class="inputForm" type="submit" value="Quote">
+      </div>
+      <div class="gridResult">
+        <img class="imageCrypto" src="https://cryptocompare.com//media/37746251/btc.png" alt="image crypto">
+        <div>
+          <p class="resultPrice">The price is: <span>$ 82,909.4</span></p>
+          <p class="resultInfo">Highest price of the day: <span>$ 83,526.4</span></p>
+          <p class="resultInfo">Lowest price of the day: <span>$ 82,766.9</span></p>
+          <p class="resultInfo">Variation of the last 24 hours: <span>2.55</span></p>
+          <p class="resultInfo">Last Update: <span>Just now</span></p>
+        </div>
+      </div>
+    </div>    
+  </main>  
+</body>
+</html>
