@@ -18,6 +18,7 @@ A lightweight cryptocurrency quotation tool built with TypeScript and vanilla Ja
 - TypeScript 
 - Webpack for module bundling
 - CryptoCompare API for real-time data
+- Spinner: [link](https://cssloaders.github.io/)
 
 ### 📦 Installation:
 1- Clone the repository:
